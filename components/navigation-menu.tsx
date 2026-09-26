@@ -1,7 +1,10 @@
 import {
   NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
 import {
@@ -50,14 +53,17 @@ const NavigationMenuBar = () => {
                 Home
               </p>
             </NavigationMenuLink>
-            <NavigationMenuLink
-              className="cursor-pointer hover:bg-orange-500"
-              href="/teste"
-            >
-              <p className="text-md text-white font-semibold flex items-center gap-1">
+            <NavigationMenuItem className="hover:bg-orange-500 rounded-md">
+              <NavigationMenuTrigger className="text-white hover:bg-orange-500 rounded-md">
                 Categorias
-              </p>
-            </NavigationMenuLink>
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink>Celurares</NavigationMenuLink>
+                <NavigationMenuLink>Eletrodomésticos</NavigationMenuLink>
+                <NavigationMenuLink>Gamer</NavigationMenuLink>
+                <NavigationMenuLink>Computadores</NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
 
             <NavigationMenuLink className="cursor-pointer hover:bg-orange-500">
               <p className="text-md text-white font-semibold">Sobre nós</p>
