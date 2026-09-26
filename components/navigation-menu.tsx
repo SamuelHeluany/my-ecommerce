@@ -19,7 +19,7 @@ import Link from "next/link";
 const NavigationMenuBar = () => {
   return (
     <div className="grid w-full">
-      <div className="px-40 py-2 flex justify-between items-center">
+      <div className="px-60 py-2 flex justify-between items-center">
         <Link href="/">
           <h1 className="text-xl font-semibold flex gap-1 items-center">
             <Store size={20} />
