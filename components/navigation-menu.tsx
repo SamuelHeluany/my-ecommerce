@@ -28,8 +28,8 @@ const NavigationMenuBar = () => {
         </Link>
 
         <div className="flex gap-1">
-          <InputGroup className="p-2">
-            <InputGroupInput placeholder="Search..." className="" />
+          <InputGroup className="p-2 bg-white">
+            <InputGroupInput placeholder="Search..." />
             <InputGroupAddon align="inline-end">
               <button className="cursor-pointer">
                 <SearchIcon size={16} />
