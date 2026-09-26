@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 
 const FilterProducts = () => {
   return (
-    <div className="bg-white w-1/5 rounded-md">
+    <div className="bg-white w-1/5 rounded-md h-fit">
       <h2 className="text-xl font-semibold text-slate-700 px-7 py-2">
         Filtros
       </h2>
