@@ -1,13 +1,12 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { Roboto } from "next/font/google";
 import NavigationMenuBar from "@/components/navigation-menu";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const roboto = Roboto({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-br" className={cn("font-sans", inter.variable)}>
+    <html lang="pt-br" className={roboto.className}>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <NavigationMenuBar />
         {children}
