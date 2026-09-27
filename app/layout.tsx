@@ -1,21 +1,17 @@
-import "./globals.css";
+// app/layout.tsx
 import { Roboto } from "next/font/google";
-import NavigationMenuBar from "@/components/navigation-menu";
-import FooterPage from "@/components/footer-page";
+import "@/app/globals.css";
 
 const roboto = Roboto({ subsets: ["latin"] });
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="pt-br" className={roboto.className}>
-      <body
-        className="min-h-full flex flex-col bg-gray-200"
-        suppressHydrationWarning
-      >
-        <NavigationMenuBar />
-        {children}
-        <FooterPage />
-      </body>
+    <html lang="pt-BR" className={roboto.className} suppressHydrationWarning>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
