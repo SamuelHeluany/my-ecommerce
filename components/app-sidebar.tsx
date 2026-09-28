@@ -15,6 +15,7 @@ import {
   Store,
 } from "lucide-react";
 import { Separator } from "./ui/separator";
+import Link from "next/link";
 
 export function AppSidebar() {
   return (
@@ -32,18 +33,22 @@ export function AppSidebar() {
             MENU
           </SidebarGroupLabel>
           <SidebarGroupContent className="pl-1">
-            <button className="hover:bg-slate-200  text-[15px] w-full h-10 rounded-md cursor-pointer">
-              <p className="flex items-center text-[16px] gap-1 justify-start pl-1 text-[#273240] hover:text-[#5A6ACF] w-full">
-                <ChartNoAxesCombined size={16} className="text-[#A6ABC8]" />
-                Dashboard
-              </p>
-            </button>
-            <button className="hover:bg-slate-200 text-[#273240] hover:text-[#5A6ACF] text-[15px] w-full h-10 rounded-md cursor-pointer">
-              <p className="flex items-center text-[16px] gap-1 justify-start pl-1">
-                <BadgeDollarSign size={16} color="#A6ABC8" />
-                Vendas realizadas
-              </p>
-            </button>
+            <Link href="/painel">
+              <button className="hover:bg-slate-200  text-[15px] w-full h-10 rounded-md cursor-pointer">
+                <p className="flex items-center text-[16px] gap-1 justify-start pl-1 text-[#273240] hover:text-[#5A6ACF] w-full">
+                  <ChartNoAxesCombined size={16} className="text-[#A6ABC8]" />
+                  Dashboard
+                </p>
+              </button>
+            </Link>
+            <Link href="/sales">
+              <button className="hover:bg-slate-200 text-[#273240] hover:text-[#5A6ACF] text-[15px] w-full h-10 rounded-md cursor-pointer">
+                <p className="flex items-center text-[16px] gap-1 justify-start pl-1">
+                  <BadgeDollarSign size={16} color="#A6ABC8" />
+                  Vendas realizadas
+                </p>
+              </button>
+            </Link>
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
