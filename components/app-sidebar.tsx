@@ -56,12 +56,14 @@ export function AppSidebar() {
             GERENCIAR
           </SidebarGroupLabel>
           <SidebarGroupContent className="pl-1">
-            <button className="hover:bg-slate-200 text-[#273240] hover:text-[#5A6ACF] text-[15px] w-full h-10 rounded-md cursor-pointer">
-              <p className="flex items-center text-[16px] gap-1 justify-start pl-1">
-                <ShoppingBasket size={16} color="#A6ABC8" />
-                Produtos
-              </p>
-            </button>
+            <Link href="/products">
+              <button className="hover:bg-slate-200 text-[#273240] hover:text-[#5A6ACF] text-[15px] w-full h-10 rounded-md cursor-pointer">
+                <p className="flex items-center text-[16px] gap-1 justify-start pl-1">
+                  <ShoppingBasket size={16} color="#A6ABC8" />
+                  Produtos
+                </p>
+              </button>
+            </Link>
             <button className="hover:bg-slate-200 text-[#273240] hover:text-[#5A6ACF] text-[15px] w-full h-10 rounded-md cursor-pointer">
               <p className="flex items-center text-[16px] gap-1 justify-start pl-1">
                 <Package size={16} color="#A6ABC8" />
