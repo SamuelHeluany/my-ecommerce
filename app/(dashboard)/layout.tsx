@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className={`${poppins.className} flex min-h-screen w-full`}>
         <AppSidebar />
         <SidebarTrigger />
-        <div className="w-full pt-2">
+        <div className="w-full pt-2 px-10">
           <DashboardHeader />
           <main className={poppins.className}>{children}</main>
         </div>

@@ -1,8 +1,6 @@
 export const Header = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex w-full items-center justify-between px-10">
-      {children}
-    </div>
+    <div className="flex w-full items-center justify-between">{children}</div>
   );
 };
 
