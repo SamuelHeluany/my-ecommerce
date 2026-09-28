@@ -1,6 +1,6 @@
 import { Flame } from "lucide-react";
 import FilterProducts from "./_components/filter-products";
-import ProductsPage from "../products/page";
+import EcommerceProducts from "../ecommerce-products/page";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
 
       <div className="flex w-full gap-4">
         <FilterProducts />
-        <ProductsPage />
+        <EcommerceProducts />
       </div>
     </div>
   );
