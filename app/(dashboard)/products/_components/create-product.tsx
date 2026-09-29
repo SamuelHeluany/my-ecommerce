@@ -46,13 +46,20 @@ const CreateProduct = ({ children }: CreateProductProps) => {
       description: "",
       price: 0,
       stock: 0,
-      image_url: "",
+      image_url: undefined,
     },
   });
 
   const onSubmit = async (data: CreateProductSchema) => {
     try {
-      await createProduct(data);
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("description", data.description);
+      formData.append("price", String(data.price));
+      formData.append("stock", String(data.stock));
+      formData.append("image_url", data.image_url);
+
+      await createProduct(formData);
       reset(); // Reseta os campos do formulário
       setOpen(false); // Fecha o modal após enviar
     } catch (error) {
@@ -173,30 +180,28 @@ const CreateProduct = ({ children }: CreateProductProps) => {
           <Controller
             name="image_url"
             control={control}
-            render={({ field, fieldState }) => (
+            render={({
+              field: { onChange, onBlur, name, ref },
+              fieldState,
+            }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name}>Imagem do produto</FieldLabel>
+                <FieldLabel htmlFor={name}>Imagem do produto</FieldLabel>
                 <Input
-                  {...field}
-                  id={field.name}
-                  aria-invalid={fieldState.invalid}
-                  placeholder="https://exemplo.com/imagem.png"
-                  autoComplete="off"
-                  className="max-w-80 sm:max-w-90"
+                  id={name}
+                  name={name}
+                  ref={ref}
+                  onBlur={onBlur}
                   type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  aria-invalid={fieldState.invalid}
+                  className="max-w-80 sm:max-w-90"
+                  onChange={(e) => onChange(e.target.files?.[0])}
                 />
                 {fieldState.invalid && fieldState.error && (
                   <FieldError errors={[fieldState.error]} />
                 )}
               </Field>
             )}
-          />
-
-          {/* Campo Oculto: created_at */}
-          <Controller
-            name="created_at"
-            control={control}
-            render={({ field }) => <input type="hidden" {...field} />}
           />
 
           <button
@@ -206,10 +211,11 @@ const CreateProduct = ({ children }: CreateProductProps) => {
           >
             {isSubmitting ? (
               <>
-                <Spinner className="h-5 w-4 items-center" /> Criando ticket...
+                <Spinner className="h-5 w-4 items-center" /> Cadastrando
+                produto...
               </>
             ) : (
-              "Criar Ticket"
+              "Cadastrar produto"
             )}
           </button>
         </form>
